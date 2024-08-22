@@ -17,28 +17,28 @@ function getComputerChoice() {
     let choice = Math.random();
 
     if(choice < 0.33){
-        return 2;
+        return 1;
     }
     else if(choice < 0.66){
-        return 3;
+        return 2;
     }
     else {
-        return 1;
+        return 3;
     }
 }
 
 function numberToWords(num) {
     switch(num){
 
-        case 2:
+        case 1:
             return("rock");
             break;
         
-        case 3:
+        case 2:
             return("paper");
             break;
 
-        case 1:
+        case 3:
             return("scissors");
             break;
         default:
@@ -62,8 +62,9 @@ function startGame() {
         return 0;
     }
 
-    let wins;
-    let loses;
+    let wins = 0;
+    let loses = 0;
+    let draw = 0;
 
     if(wantToPlay == true) {
         for(let i = 0; i < 5; i++) {
@@ -71,7 +72,12 @@ function startGame() {
             let cpuChoice = getComputerChoice();
   
 
-            if(userChoice - cpuChoice == 0){
+            if(userChoice == cpuChoice){
+                console.log("It's a draw! both of you chose " + numberToWords(cpuChoice));
+                draw += 1
+            }
+
+            else if(userChoice - cpuChoice == 1 || userChoice - cpuChoice == -2){
                 console.log("You won! the computer chose " + numberToWords(cpuChoice));
                 wins += 1;
             }
@@ -80,7 +86,7 @@ function startGame() {
                 loses += 1;
             }
         }
-        console.log("The game has ended! you won " + wins + " times and lost " + loses + " times.")
+        console.log("The game has ended! you won " + wins + " times, lost " + loses + " times and there were " + draw + "draws")
     }
 
 
