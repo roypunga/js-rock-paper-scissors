@@ -81,6 +81,10 @@ function drawGame(input){
     cpuChoiceOutput.textContent = numberToWords(input.cpu);
     userChoiceOutput.textContent = numberToWords(input.user);
     resultOutput.textContent = input.result;
+
+    if(input.result == 'draw') resultOutput.style.color = "yellow"
+    if(input.result == 'loss') resultOutput.style.color = "red"
+    if(input.result == 'win') resultOutput.style.color = "green"
 }
 //
 
