@@ -48,46 +48,59 @@ function numberToWords(num) {
     }
 }
 
-function startGame() {
-    let wantToPlay = prompt("Welcome! Do you want to play? (y/n)");
+function startGame(userChoice) {
 
-    if(wantToPlay == "y" || wantToPlay == 'Y') {
-        wantToPlay = true
+    let cpuChoice = getComputerChoice();
+
+
+    if(userChoice == cpuChoice){
+        return {
+            user: userChoice,
+            cpu: cpuChoice,
+            result: 'draw',
+        }
     }
-    else if(wantToPlay == 'n' || wantToPlay == 'N') {
-        wantToPlay = false
+
+    else if(userChoice - cpuChoice == 1 || userChoice - cpuChoice == -2){
+        return {
+            user: userChoice,
+            cpu: cpuChoice,
+            result: 'win',
+        }
     }
     else {
-        console.log("Only 'y' or 'n'!!!!");
-        return 0;
-    }
-
-    let wins = 0;
-    let loses = 0;
-    let draw = 0;
-
-    if(wantToPlay == true) {
-        for(let i = 0; i < 5; i++) {
-            let userChoice = getUserChoice();
-            let cpuChoice = getComputerChoice();
-  
-
-            if(userChoice == cpuChoice){
-                console.log("It's a draw! both of you chose " + numberToWords(cpuChoice));
-                draw += 1
-            }
-
-            else if(userChoice - cpuChoice == 1 || userChoice - cpuChoice == -2){
-                console.log("You won! the computer chose " + numberToWords(cpuChoice));
-                wins += 1;
-            }
-            else {
-                console.log("You lost... the computer chose " + numberToWords(cpuChoice));
-                loses += 1;
-            }
+        return {
+            user: userChoice,
+            cpu: cpuChoice,
+            result: 'loss',
         }
-        console.log("The game has ended! you won " + wins + " times, lost " + loses + " times and there were " + draw + "draws")
     }
-
-
 }
+
+function drawGame(input){
+    cpuChoiceOutput.textContent = numberToWords(input.cpu);
+    userChoiceOutput.textContent = numberToWords(input.user);
+    resultOutput.textContent = input.result;
+}
+//
+
+const rockButton = document.querySelector('button#rock');
+const paperButton = document.querySelector('button#paper');
+const scissorsButton = document.querySelector('button#scissors');
+
+const userChoiceOutput = document.querySelector('.userChoice');
+const cpuChoiceOutput = document.querySelector('.cpuChoice');
+const resultOutput = document.querySelector('.result')
+
+rockButton.addEventListener('click', () =>{
+    let result = startGame(1)
+    drawGame(result);
+})
+paperButton.addEventListener('click', () =>{
+    let result = startGame(2)
+    drawGame(result);
+})
+scissorsButton.addEventListener('click', () =>{
+    let result = startGame(3)
+    drawGame(result);
+})
