@@ -81,10 +81,21 @@ function drawGame(input){
     cpuChoiceOutput.textContent = numberToWords(input.cpu);
     userChoiceOutput.textContent = numberToWords(input.user);
     resultOutput.textContent = input.result;
+    
 
-    if(input.result == 'draw') resultOutput.style.color = "yellow"
-    if(input.result == 'loss') resultOutput.style.color = "red"
-    if(input.result == 'win') resultOutput.style.color = "green"
+    if(input.result == 'draw') {
+        resultOutput.style.color = "yellow"
+        resultHistoryOutput.textContent += '🤝🏻'
+    }
+    if(input.result == 'loss') {
+        resultOutput.style.color = "red"
+        resultHistoryOutput.textContent += '❌'
+    }
+
+    if(input.result == 'win') {
+        resultOutput.style.color = "green"
+        resultHistoryOutput.textContent += '🏅'
+    }
 }
 //
 
@@ -94,7 +105,8 @@ const scissorsButton = document.querySelector('button#scissors');
 
 const userChoiceOutput = document.querySelector('.userChoice');
 const cpuChoiceOutput = document.querySelector('.cpuChoice');
-const resultOutput = document.querySelector('.result')
+const resultOutput = document.querySelector('.result');
+const resultHistoryOutput = document.querySelector('.resultHistory');
 
 rockButton.addEventListener('click', () =>{
     let result = startGame(1)
