@@ -1,4 +1,4 @@
-function getUserChoice() {
+/* function getUserChoice() {
     let choice = prompt("Rock, paper or scissors?");
 
     if(choice == "Rock" || choice == "ROCK" || choice == "rock") {
@@ -12,7 +12,7 @@ function getUserChoice() {
     }
 
 }
-
+ */
 function getComputerChoice() {
     let choice = Math.random();
 
@@ -97,6 +97,36 @@ function drawGame(input){
         resultHistoryOutput.textContent += '🏅'
     }
 }
+
+function checkScores(user, cpu){
+
+    const toggle = document.querySelector(".toggle");
+    const winner = document.querySelector(".winner");
+    const content = document.querySelector('.content');
+    const restart = document.createElement('button');
+    restart.textContent = 'Restart';
+    
+    restart.addEventListener('click', () =>{
+        location.reload();
+    })
+    if(cpu > 4){
+        
+        toggle.style.display = 'none';
+        winner.textContent = "The CPU Won! Too bad..";
+        winner.style.margin = '8px';
+        content.appendChild(restart);
+
+    }
+    if(user > 4){
+
+        toggle.style.display = 'none';
+        winner.textContent = "You won!!";
+        winner.style.margin = '8px';
+        content.appendChild(restart);
+
+    }
+}
+
 //
 
 const rockButton = document.querySelector('button#rock');
@@ -108,15 +138,48 @@ const cpuChoiceOutput = document.querySelector('.cpuChoice');
 const resultOutput = document.querySelector('.result');
 const resultHistoryOutput = document.querySelector('.resultHistory');
 
+let userWins = 0;
+let cpuWins = 0;
+
 rockButton.addEventListener('click', () =>{
     let result = startGame(1)
     drawGame(result);
+
+    if(result.result == 'win') {
+        userWins += 1;
+    }
+    else if(result.result == 'loss'){
+        cpuWins += 1;
+    }
+
+    checkScores(userWins, cpuWins);
+
 })
 paperButton.addEventListener('click', () =>{
     let result = startGame(2)
     drawGame(result);
+
+    if(result.result == 'win') {
+        userWins += 1;
+    }
+    else if(result.result == 'loss'){
+        cpuWins += 1;
+    }
+
+    checkScores(userWins, cpuWins);
+
 })
 scissorsButton.addEventListener('click', () =>{
     let result = startGame(3)
     drawGame(result);
+
+    if(result.result == 'win') {
+        userWins += 1;
+    }
+    else if(result.result == 'loss'){
+        cpuWins += 1;
+    }
+
+    checkScores(userWins, cpuWins);
+    
 })

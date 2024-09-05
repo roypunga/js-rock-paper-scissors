@@ -1,8 +1,8 @@
-/* Estilos generales del cuerpo */
+
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #1e1e1e; /* Color de fondo oscuro */
-    color: #e0e0e0; /* Color de texto claro */
+    background-color: #1e1e1e;
+    color: #e0e0e0; 
     margin: 0;
     padding: 0;
     display: flex;
@@ -11,10 +11,9 @@ body {
     height: 100vh;
 }
 
-/* Contenedor principal */
 .content {
     text-align: center;
-    background-color: #2c2c2c; /* Fondo del contenedor oscuro con un tono más claro */
+    background-color: #2c2c2c;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     padding: 20px;
@@ -22,23 +21,22 @@ body {
     max-width: 600px;
 }
 
-/* Estilo para las elecciones de la CPU y del usuario */
 .cpuChoice, .userChoice, .result {
     margin: 20px 0;
     font-size: 1.5em;
-    color: #b0bec5; /* Color de texto más suave en pastel */
+    color: #b0bec5;
 }
 
-/* Estilo para los botones */
+
 .buttons {
     margin-top: 20px;
 }
 
 button {
-    background-color: #a5d6a7; /* Color de fondo pastel verde claro */
+    background-color: #a5d6a7;
     border: none;
     border-radius: 5px;
-    color: #1b5e20; /* Color del texto en los botones, oscuro para buen contraste */
+    color: #1b5e20;
     padding: 10px 20px;
     font-size: 1em;
     margin: 5px;
@@ -47,9 +45,9 @@ button {
 }
 
 button:hover {
-    background-color: #81c784; /* Color de fondo pastel verde más oscuro al pasar el ratón */
+    background-color: #81c784;
 }
 
 button:active {
-    transform: scale(0.98); /* Efecto de pulsación en el botón */
+    transform: scale(0.98);
 }
