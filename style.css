@@ -21,6 +21,11 @@ body {
     max-width: 600px;
 }
 
+.cpuImg {
+    height: 64px;
+    width: 64px;
+}
+
 .cpuChoice, .userChoice, .result {
     margin: 20px 0;
     font-size: 1.5em;
