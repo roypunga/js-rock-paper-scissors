@@ -78,8 +78,38 @@ function startGame(userChoice) {
 }
 
 function drawGame(input){
-    cpuChoiceOutput.textContent = numberToWords(input.cpu);
-    userChoiceOutput.textContent = numberToWords(input.user);
+
+    const userChoiceOutput = document.querySelector('.userChoiceImg');
+    const cpuChoiceOutput = document.querySelector('.cpuChoiceImg');
+
+    switch(input.user){
+        case 1:
+            userChoiceOutput.src = 'images/rock.png';
+            break;
+        
+        case 2:
+            userChoiceOutput.src = 'images/paper.png';
+            break;
+             
+        case 3:
+            userChoiceOutput.src = 'images/scissors.png';
+            break;
+    }
+
+    switch(input.cpu){
+        case 1:
+            cpuChoiceOutput.src = 'images/rock.png';
+            break;
+        
+        case 2:
+            cpuChoiceOutput.src = 'images/paper.png';
+            break;
+             
+        case 3:
+            cpuChoiceOutput.src = 'images/scissors.png';
+            break;
+    }
+
     resultOutput.textContent = input.result;
     
 
@@ -133,8 +163,6 @@ const rockButton = document.querySelector('button#rock');
 const paperButton = document.querySelector('button#paper');
 const scissorsButton = document.querySelector('button#scissors');
 
-const userChoiceOutput = document.querySelector('.userChoice');
-const cpuChoiceOutput = document.querySelector('.cpuChoice');
 const resultOutput = document.querySelector('.result');
 const resultHistoryOutput = document.querySelector('.resultHistory');
 
